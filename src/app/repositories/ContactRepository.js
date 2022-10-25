@@ -46,6 +46,32 @@ class ContactRepository {
       resolve();
     });
   }
+
+  async findByEmail(email) {
+    return new Promise((resolve) => {
+      const contact = contacts.find((item) => item.email === email);
+
+      resolve(contact);
+    });
+  }
+
+  async create(user) {
+    return new Promise((resolve) => {
+      const { name, email, phone, category_id } = user;
+
+      const newContact = {
+        id: v4(),
+        name,
+        email,
+        phone,
+        category_id,
+      };
+
+      contacts.push(newContact);
+
+      resolve(newContact);
+    });
+  }
 }
 
 module.exports = new ContactRepository();
