@@ -8,7 +8,7 @@ O projeto **My Contact** é o backend de outra aplicação que sendo desenvolvid
 
 O projeto foi desenvolvido com as seguintes tecnologias:
 
-- [Express]([https://pt-br.reactjs.org/](https://expressjs.com/pt-br/))
+- [Express] ([https://pt-br.reactjs.org/](https://expressjs.com/pt-br/))
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
 ---
