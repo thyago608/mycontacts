@@ -33,11 +33,9 @@ class ContactRepository {
   }
 
   async findById(id) {
-    return new Promise((resolve) => {
-      const contact = contacts.find((item) => item.id === id);
+    const [row] = await db.query("SELECT * FROM contacts WHERE id = $1", [id]);
 
-      resolve(contact);
-    });
+    return row;
   }
 
   async delete(id) {
