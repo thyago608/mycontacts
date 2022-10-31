@@ -38,20 +38,12 @@ class ContactRepository {
     return row;
   }
 
-  async delete(id) {
-    return new Promise((resolve) => {
-      contacts = contacts.filter((item) => item.id !== id);
-
-      resolve();
-    });
-  }
-
   async findByEmail(email) {
-    return new Promise((resolve) => {
-      const contact = contacts.find((item) => item.email === email);
+    const [row] = await db.query("SELECT * FROM contacts WHERE email = $1", [
+      email,
+    ]);
 
-      resolve(contact);
-    });
+    return row;
   }
 
   async create(user) {
@@ -86,6 +78,14 @@ class ContactRepository {
       );
 
       resolve(updateContact);
+    });
+  }
+
+  async delete(id) {
+    return new Promise((resolve) => {
+      contacts = contacts.filter((item) => item.id !== id);
+
+      resolve();
     });
   }
 }
